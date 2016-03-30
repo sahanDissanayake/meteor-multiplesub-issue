@@ -2,6 +2,9 @@ PostList = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     const handle = Meteor.subscribe('posts');
+
+    const handle2 = Meteor.subscribe('singlePost', 'one');
+
     const data = {};
     if(handle.ready()) {
       data.posts = Posts.find({}, {sort: {_id: 1}}).fetch();
